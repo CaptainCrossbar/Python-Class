@@ -24,7 +24,7 @@ def inverted(l):
     newl = l.copy()
     invert(newl)
 
-    return l1
+    return newl
 
     pass
 

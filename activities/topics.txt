@@ -1,0 +1,20 @@
+Exam Topics:
+
+Perform a calculation given one or more arguments and a formula.
+Determine certain properties of an IPv4 address.
+Correlate information, i.e. map.
+Filter and convert data.
+Construct a complicated string from component parts. str.format, format()
+File IO
+Deconstruct a string into component parts. split(), join(), slicing
+Construct a dictionary.
+Construct a tuple.
+Try an operation and if it fails do something else.
+Perform an operation on variable length arguments.
+Socket IO.
+Define a class according to a specification. OOP
+Bitwise operators.
+
+
+
+

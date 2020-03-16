@@ -8,6 +8,7 @@ def steg_encode_char(char, cover):
     Returns:
         None
     '''
+
     pass
 
 def steg_decode_char(stego):

@@ -19,6 +19,7 @@ def q1(floatstr):
 
     return nls
 
+    #return [float(x) for x in floatstr.splt(',')]
     pass
 
 def q2(*args):
@@ -30,21 +31,14 @@ def q2(*args):
     of all the arguments as a float
     '''
 
-    '''
-    ret = []
-    counter = 0
-    sum = 0
-    avg = 0
+    argSum = 0
+    argLength = 0
+    for arg in args:
+        argSum += arg
+        argLength += 1
+    return argSum / argLength
 
-    for x in len(args):
-        counter = len(args)
-        sum += x[args]
-
-    avg = sum / counter
-
-    return avg
-    '''
-    return sum(args) / len(args)
+    #return sum(args) / len(args)
 
     pass
 
@@ -58,6 +52,8 @@ def q3(lst,n):
     new_lst = []
     new_lst = lst[-n:]
     return new_lst
+
+    #return lst[-n:]
     pass
 
 def q4(strng):
@@ -74,6 +70,8 @@ def q4(strng):
     for char in strng:
         ret.append(ord(char))
     return ret
+
+    #return [ord(x) for x in list(strng)]
     pass
 
 def q5(strng):
@@ -97,6 +95,10 @@ def q6():
     Date: 12/31/1999 Time: 11:59 p.m. Temperature: 44 F
     Date: 01/01/2000 Time: 12:01 a.m. Temperature: 5.2 C
     '''
+
+    pat = r"Date: (\d+/\d+/\d+) Time: (\d+:\d+ .\.m\.) Temperature: ([\d\.]+ [FfCc])"
+    return pat 
+
     pass
 
 def q7(filename):
@@ -110,6 +112,8 @@ def q7(filename):
         data = fp.readlines()
 
     return len(data[0])-1
+
+    #with open(filename) as fp: return len(fp.readline()) - 1
     pass
 
 def q8(filename,lst):
@@ -130,6 +134,14 @@ def q8(filename,lst):
         else:
             break
     file.close()
+
+    '''
+    with open(filename, 'w') as fp:
+        for item in lst:
+            if item.lower() == 'stop':
+                break
+            fp.write('{}\n'.format(item))
+    '''
     pass
 
 def q9(miltime):
@@ -153,6 +165,16 @@ def q9(miltime):
     else:
         return 'Good Night'
 
+    '''
+    if 300 <= miltime <= 1159:
+        return 'Good Morning'
+    if 1200 <= miltime <= 1559:
+        return 'Good Afternoon'
+    if 1600 <= miltime <= 2059:
+        return 'Good Evening'
+    return 'Good Night'
+    '''
+
     pass
 
 def q10(numlist):
@@ -170,4 +192,11 @@ def q10(numlist):
             return True
         else:
             return False
+
+    '''
+    import math
+    if abs(sum(numlist)) != sum(numlist):
+        retrun False
+    return True
+    '''
     pass

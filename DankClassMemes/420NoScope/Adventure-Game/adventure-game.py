@@ -6,7 +6,7 @@
 # File Name : adventure-game.py
 # Author : CaptainCrossbar
 # Creation Date : 05 - March - 2020
-# Last Modified : 12 - March - 2020
+# Last Modified : 16 - March - 2020
 # Description : A game that takes you on a series of adventures where it will ask
 # to do do something and input your findings to progress.
 #
@@ -102,11 +102,57 @@ def adventure1():
 #function for adventure 2
 #Its Hockey Night tonight
 def adventure2():
+
     print('Congradulations on finishing your first adventure.')
+    hockey_bank = ["The word Hockey was first used in what year?",
+    "Ice Hockey was included for the first time in the Olympics in which year?",
+    "Which teams are included in the Big Six hockey teams?",
+    "Which team of the NHL won back to back Stanley Cup titles?",
+    "Which player holds the record for the most goals scored in one NHL game?",
+    "Before Steve Yzerman who was the captain of the Detriot Red Wings?",
+    "Who was the first player in hockey history to win an Olympic Gold Medal and a Stanley Cup in the same year?",
+    "What year did the Stanley Cup have no winner? And what was the cause?"]
+
+    hockey_lst = hockey_bank
+
+    hockey_ans = ["1773",
+    "1920 Summer Olympics",
+    "Canada, Czech Republic, Finland, Russia, Sweden, and the United States",
+    "Ottawa Senators",
+    "Joe Malone",
+    "Danny Gare",
+    "Ken Morrow",
+    "1919 influenza epidemic"]
+
+    hockey_ans_lst = hockey_ans
+
+    hockey_chirps = ["What's that? Roll down your window, I can't hear you.",
+    "Hey man, does your coach know you're out here?",
+    "Hey stripes, the whistle ain't a dick, get it out of your mouth.",
+    "Hey tendie, your legs are so wide open you make Jenna Jameson look like a saint.",
+    "Funny, I heard you were the worst player on your last team too."]
+
+    while hockey_lst > 0:
+
+        r = random.randint(0, len(hockey_lst)- 1)
+
+        print(hockey_lst[r])
+
+        user = input().lower()
+        print('\n')
+
+        if user == hockey_ans_lst[r]:
+            print('He shots, he scores. Keep firing top ched there big boy\n \n')
+        else:
+            chirp = random.randint(0, len(hockey_chirps))
+            print(hockey_chirps[chirp],'\n\n')
+
+        hockey_lst.remove(hockey_lst[r])
+        hockey_ans_lst.remove(hockey_ans_lst[r])
     pass
 
 #function for adventure 3
-#The West Point of the South aka the better school
+#
 def adventure3():
     print('Congradulations on finishing your second adventure.')
     pass
@@ -115,6 +161,7 @@ def adventure3():
 #From Russia with Love
 def adventure4():
     print('Поздравляю с завершением третьего приключения.')
+    #this adventure is done in the fight night.py game
     pass
 
 #function for adventure 5
@@ -457,8 +504,6 @@ def adventure5():
         break
 
 
-
-
     #question set 3 comedies
 
 
@@ -694,33 +739,45 @@ def adventure5():
 
 
 #function for adventure 6
-#The kights who say Knee
+#The kights who say Knee, an adventure into memes
 def adventure6():
     print('Congradulations on finishing your fifth adventure.')
+
+    meme_lst1 = []
+    animeme = []
+    meme_lst2 = []
+
+
     pass
 
 #function for adventure 7
 #Best beer in the world
 def adventure7():
     print('Herzlichen Glückwunsch zum Abschluss Ihres sechsten Abenteuers.')
+
+    #find beers and provide description of their taste
+    #have user input the beer name based of taste description
     pass
 
 #function for adventure 8
 #City of love (Pari)
 def adventure8():
     print('Félicitations pour avoir terminé votre septième aventure.')
+    #ask questions based on rom coms and display memes for right and wrong answers
     pass
 
 #function for adventure 9
 #Barcalona is king
 def adventure9():
     print('Felicitaciones por terminar su octava aventura.')
+    #
     pass
 
 #function for adventure 10
 #Italian job
 def adventure10():
     print('Congratulazioni per aver terminato la tua nona avventura.')
+    #
     pass
 
 ###############################################################################################################################################################

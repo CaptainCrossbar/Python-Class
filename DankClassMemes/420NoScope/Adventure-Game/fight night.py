@@ -1,7 +1,6 @@
 import random
 import time
 
-
 class Player():
     def __init__(self, name):
         self.health = 100
@@ -15,9 +14,11 @@ class Player():
             if (overkill > 0):
                 print("{0} takes fatal damage from {1}, with {2} overkill!"
                       .format(self.name.capitalize(), attacker, overkill))
+
             else:
                 print("{0} takes fatal damage from {1}!"
                       .format(self.name.capitalize(), attacker))
+
         else:
             self.health -= damage_amount
             print("{0} takes {1} damage from {2}!"
@@ -28,6 +29,7 @@ class Player():
             self.health = 100
             print("{0} heals back to full health!"
                   .format(self.name.capitalize()))
+
         else:
             self.health += heal_amount
             print("{0} heals for {1}!"
@@ -49,13 +51,23 @@ def get_selection():
         choice = input("Select an attack: ")
         if (parse_int(choice) is True):
             return int(choice)
+
         else:
             print("The input was invalid. Please try again.")
 
 
 def get_computer_selection(health):
-    sleep_time = random.randrange(2, 5)
-    print("....thinking....")
+    sleep_time = random.randrange(2, 4)
+    taunt_list = [
+    "Zhopu porvu margala vikoliu - I’ll rip your ass and poke out your eyes",
+    "Nu vse, tebe pizda - That’s it, you’re f*%(in’ dead"
+    "Indanahway suka bluut - F#$% off bitch (highly offensive)",
+    "Perestan’ bit dabayobom - Stop being a dips#$%",
+    "Yobanyi karas’ - F@#$ing moron"
+    ]
+    taunt = randint(len(taunt_list))
+    print(taunt_list[taunt])
+    #print("....thinking....")
     time.sleep(sleep_time)
 
     if (health <= 35):
@@ -65,8 +77,10 @@ def get_computer_selection(health):
             return 3
         else:
             return random.randint(1, 2)
+
     elif (health == 100):
         return random.randint(1, 2)
+
     else:
         return random.randint(1, 3)
 
@@ -89,13 +103,21 @@ def play_round(computer, human):
             .format(human.health, computer.health))
         print()
 
-        if (current_player == human):
+        if (current_player == human) and (human.health <= 30):
             print("Available attacks:")
             print("1) Fire Bang Bang Device - Causes moderate damage.")
             print("2) Hand to Hand Combat - high or low damage, depending on your luck!")
             print("3) Nature's Penetrating Kiss - Restores a moderate amount of health.")
             print("4) Full Blown Penetration, Mad Moxxi Style - Kills you and everyone around you.")
             move = get_selection()
+
+        elif (current_player == human):
+            print("Available attacks:")
+            print("1) Fire Bang Bang Device - Causes moderate damage.")
+            print("2) Hand to Hand Combat - high or low damage, depending on your luck!")
+            print("3) Nature's Penetrating Kiss - Restores a moderate amount of health.")
+            move = get_selection()
+
         else:
             move = get_computer_selection(computer.health)
 
@@ -105,17 +127,28 @@ def play_round(computer, human):
                 computer.calculate_damage(damage, human.name.capitalize())
             else:
                 human.calculate_damage(damage, computer.name.capitalize())
+
         elif (move == 2):
             damage = random.randrange(10, 35)
             if (current_player == human):
                 computer.calculate_damage(damage, human.name.capitalize())
             else:
                 human.calculate_damage(damage, computer.name.capitalize())
+
         elif (move == 3):
             heal = random.randrange(18, 25)
             current_player.calculate_heal(heal)
+
+        elif (move == 4):
+            human.health = 0
+            computer.health = 0
+
         else:
             print ("The input was not valid. Please select a choice again.")
+
+        if(move == 4):
+            print("You decided to let no one win, Congrats. You insides are now interwined with the Scavs insides. It honestly kinda hot ;p")
+            game_in_progress = False
 
         if (human.health == 0):
             print("The Scav killed you and took all of your gear! Srat’ tebe v rot")
